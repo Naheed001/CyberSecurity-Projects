@@ -5,7 +5,7 @@
 
 > **Course:** MSc Cyber Security — Lab Project
 > 
-
+h
 > **Tools:** VirtualBox · Kali Linux · Ubuntu Server · Hydra · Splunk Enterprise · rockyou.txt
 > 
 
@@ -52,26 +52,26 @@ Windows Host  (192.168.102.1)
 > 
 > 
 > 
-> ![image.png](image.png)
+> ![image.png](screenshots/image.png)
 > 
 
 ### Figure 2 — Kali Linux IP Address
 
 *Screenshot: `ip a` output on Kali confirming `192.168.102.4` on the host-only network*
 
-![image.png](image%201.png)
+![image.png](screenshots/image%201.png)
 
 ### Figure 3 — Ubuntu Target IP Address
 
 *Screenshot: `ip a` output on Ubuntu confirming `192.168.102.3` on the host-only network*
 
-![image.png](image%202.png)
+![image.png](screenshots/image%202.png)
 
 ### Figure 4 — Network Connectivity Verification
 
 *Screenshot: `ping 192.168.102.3` from Kali showing 0% packet loss*
 
-![image.png](image%203.png)
+![image.png](screenshots/image%203.png)
 
 > Zero packet loss confirms the isolated lab network is functioning correctly. This is a required verification step before any attack simulation — if VMs can’t reach each other, Hydra will silently fail.
 > 
@@ -131,19 +131,19 @@ Splunk was configured to receive data on port `9997`, and a Windows Firewall inb
 
 *Screenshot: Splunk home dashboard confirming successful installation and login*
 
-![image.png](image%204.png)
+![image.png](screenshots/image%204.png)
 
 ### Figure 6 — Forwarder Configuration Files
 
 *Screenshot: `inputs.conf` and `outputs.conf` content on Ubuntu terminal*
 
-![image.png](image%205.png)
+![image.png](screenshots/image%205.png)
 
 ### Figure 7 — Splunk Receiving Port
 
 *Screenshot: Splunk Settings showing port 9997 enabled and active*
 
-![image.png](image%206.png)
+![image.png](screenshots/image%206.png)
 
 ## Log Pipeline Verification
 
@@ -167,13 +167,13 @@ Result confirmed: `host = ubuntu-target` · `source = /var/log/auth.log` · `sou
 
 *Screenshot: `tail -20 /var/log/auth.log` showing Failed password and Accepted password entries*
 
-![image.png](image%207.png)
+![image.png](screenshots/image%207.png)
 
 ### Figure 9 — Splunk Receiving Logs
 
 *Screenshot: Splunk Search & Reporting showing live events from ubuntu-target via /var/log/auth.log*
 
-![image.png](image%208.png)
+![image.png](screenshots/image%208.png)
 
 ---
 
@@ -213,7 +213,7 @@ hydra -l s3rvic -P /usr/share/wordlists/rockyou.txt -t 2 -W 3 -V ssh://192.168.1
 
 *Screenshot: Hydra terminal showing password1 found after 28 attempts, 1 of 1 targets completed*
 
-![image.png](image%209.png)
+![image.png](screenshots/image%209.png)
 
 ---
 
@@ -242,7 +242,7 @@ index=main sourcetype=linux_secure "Failed password"
 
 *Screenshot: Splunk table showing 407 failed attempts from 192.168.102.4, classified as CRITICAL*
 
-![image.png](image%2010.png)
+![image.png](screenshots/image%2010.png)
 
 ## Successful Login Evidence
 
@@ -259,7 +259,7 @@ index=main sourcetype=linux_secure "Accepted password"
 
 *Screenshot: Splunk showing Accepted password for s3rvic from 192.168.102.4 — confirming attack succeeded*
 
-![image.png](image%2011.png)
+![image.png](screenshots/image%2011.png)
 
 ---
 
@@ -289,7 +289,7 @@ index=main sourcetype=linux_secure "Failed password"
 
 *Screenshot: Bar chart with 192.168.102.4 dominating the chart with 400+ failed attempts*
 
-![image.png](image%2012.png)
+![image.png](screenshots/image%2012.png)
 
 ---
 
@@ -307,7 +307,7 @@ The timeline shows a clear spike at the exact time Hydra was running (30 May 202
 
 *Screenshot: Line chart showing the brute force spike on 30 May 2026 at approximately 00:30*
 
-![image.png](image%2013.png)
+![image.png](screenshots/image%2013.png)
 
 ---
 
@@ -335,7 +335,7 @@ This automated triage means an analyst sees severity labels instantly — no man
 
 *Screenshot: Statistics table showing 192.168.102.4 — 407 attempts — CRITICAL*
 
-![image.png](image%2014.png)
+![image.png](screenshots/image%2014.png)
 
 ---
 
@@ -354,7 +354,7 @@ This panel flags any IP that achieved a successful login. When that IP also appe
 
 *Screenshot: Table showing 192.168.102.4 — 2 successful logins — s3rvic — POSSIBLE BREACH - INVESTIGATE IMMEDIATELY*
 
-![image.png](image%2015.png)
+![image.png](screenshots/image%2015.png)
 
 ---
 
@@ -400,7 +400,7 @@ index=main sourcetype=linux_secure "Failed password"
 
 *Screenshot: Splunk alert settings — scheduled hourly, triggers when failed attempts exceed threshold, severity Critical*
 
-![image.png](image%2016.png)
+![image.png](screenshots/image%2016.png)
 
 ---
 
