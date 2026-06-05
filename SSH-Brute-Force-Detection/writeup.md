@@ -3,7 +3,7 @@
 > **Project:** SSH Brute Force Detection & Splunk SIEM Dashboard
 > 
 
-> **Course:** MSc Cyber Security — Lab Project
+> **Course:** MSci Cyber Security — Lab Project
 > 
 
 > **Tools:** VirtualBox · Kali Linux · Ubuntu Server · Hydra · Splunk Enterprise · rockyou.txt
