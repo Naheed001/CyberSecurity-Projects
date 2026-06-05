@@ -5,7 +5,7 @@
 
 > **Course:** MSc Cyber Security — Lab Project
 > 
-h
+
 > **Tools:** VirtualBox · Kali Linux · Ubuntu Server · Hydra · Splunk Enterprise · rockyou.txt
 > 
 
