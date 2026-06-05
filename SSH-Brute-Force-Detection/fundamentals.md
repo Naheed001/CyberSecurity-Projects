@@ -221,11 +221,4 @@ index=main sourcetype=linux_secure ("Failed password" OR "Invalid user")
     - `dc(username)` — counts **distinct** usernames attempted (dc = distinct count)
     - `eval` — creates a calculated field; here it assigns a severity label based on volume
 
-### Dashboard Panels to Build
-
-1. **📈 Timeline Chart** — failed logins over time (visually see the attack spike)
-2. **🗺️ Geo Map** — source IPs plotted by geographic location
-3. **🏆 Top Attackers Table** — IPs ranked by failure count + severity label
-4. **🔔 Alert Log** — list of triggered alerts with timestamps
-
 ---
