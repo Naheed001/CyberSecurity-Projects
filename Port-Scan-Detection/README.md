@@ -11,13 +11,13 @@ The fundamentals act as a learning methodology that teaches you the core knowled
 
 ## What I Learned
 >
-> Through this project I have understood how port scanning works at the transport level and how attackers use reconnaissance to map a network. I also gainaed hands-on experience using Splunk to detect and investigate this behaviour.
+Through this project I have understood how port scanning works at the transport level and how attackers use reconnaissance to map a network. I also gainaed hands-on experience using Splunk to detect and investigate this behaviour.
 >
 
 ## Tools Used
 >
-> - Splunk
-> - Nmap
-> - Oracle VirtualBox
-> - Kali Linux
-> - Ubuntu
+ - Splunk
+ - Nmap
+ - Oracle VirtualBox
+ - Kali Linux
+ - Ubuntu
