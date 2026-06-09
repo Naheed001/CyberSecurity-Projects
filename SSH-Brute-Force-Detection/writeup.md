@@ -10,6 +10,9 @@
 > 
 
 > 📖 **Read alongside:** [🔐 Fundamentals] for theory
+>
+
+> **AI Disclosure:** The structure, layout and formatting of this write-up were designed with the assistance of AI. All technical work, practical work, analysis and written content are my own.
 > 
 
 ---
