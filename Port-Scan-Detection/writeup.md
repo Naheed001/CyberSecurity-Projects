@@ -50,13 +50,13 @@ Windows Host  (192.168.102.1)
 
 *Screenshot: `ip a` output on Ubuntu confirming `192.168.102.3` on `enp0s3` on the host-only network*
 
-![image_1_page_2.png](image_1_page_2.png)
+![image_1_page_2.png](screenshots/image_1_page_2.png)
 
 ### Figure 2 — Kali Linux IP Address
 
 *Screenshot: `ip a` output on Kali confirming `192.168.102.4` on `eth0` on the host-only network*
 
-![image_2_page_3.png](image_2_page_3.png)
+![image_2_page_3.png](screenshots/image_2_page_3.png)
 
 ---
 
@@ -112,13 +112,13 @@ sudo crontab -e
 
 *Screenshot: `sudo iptables -L INPUT -n -v` confirming LOG rule at top of INPUT chain — `PROTO=all`, `level 4`, prefix `"IPTABLES: "`, 4 packets already counted*
 
-![image_3_page_4.png](image_3_page_4.png)
+![image_3_page_4.png](screenshots/image_3_page_4.png)
 
 ### Figure 4 — Network Events Flowing into syslog
 
 *Screenshot: `tail -f /var/log/syslog | grep "IPTABLES"` showing live IPTABLES-prefixed entries with SRC, DST, PROTO, DPT fields populated after a test ping from Kali*
 
-![image_4_page_5.png](image_4_page_5.png)
+![image_4_page_5.png](screenshots/image_4_page_5.png)
 
 ---
 
@@ -169,19 +169,19 @@ Splunk Enterprise on the Windows host was configured to receive on port `9997`, 
 
 *Screenshot: nano editor showing both monitor stanzas — auth.log with linux_secure and syslog with syslog sourcetype*
 
-![image_5_page_6.png](image_5_page_6.png)
+![image_5_page_6.png](screenshots/image_5_page_6.png)
 
 ### Figure 6 — Splunk Receiving Port Configuration
 
 *Screenshot: Splunk Settings → Forwarding and Receiving showing port 9997 enabled*
 
-![image.png](image.png)
+![image.png](screenshots/image.png)
 
 ### Figure 7 — IPTABLES Events in Splunk
 
 *Screenshot: Splunk Search & Reporting showing live IPTABLES events with `host=ubuntu-target`, `source=/var/log/syslog`, `sourcetype=syslog` confirmed*
 
-![image_6_page_8.png](image_6_page_8.png)
+![image_6_page_8.png](screenshots/image_6_page_8.png)
 
 ---
 
@@ -218,25 +218,25 @@ Five distinct Nmap scan types were executed from Kali against Ubuntu. Each was c
 
 *Screenshot: Nmap output showing `22/tcp open ssh`, 999 closed ports, scan completed in 0.19 seconds*
 
-![image_7_page_9.png](image_7_page_9.png)
+![image_7_page_9.png](screenshots/image_7_page_9.png)
 
 ### Figure 9 — Connect Scan Results (Kali)
 
 *Screenshot: Nmap `-sT` output showing `22/tcp open ssh`, 999 ports conn-refused, 0.19 seconds*
 
-![image_8_page_10.png](image_8_page_10.png)
+![image_8_page_10.png](screenshots/image_8_page_10.png)
 
 ### Figure 10 — iptables Log During Active Scan
 
 *Screenshot: Ubuntu syslog showing burst of IPTABLES entries with SRC=192.168.102.4 and rapidly varying DPT values during an active scan*
 
-![image_9_page_11.png](image_9_page_11.png)
+![image_9_page_11.png](screenshots/image_9_page_11.png)
 
 ### Figure 11 — Slow Scan Completing (T2)
 
 *Screenshot: Nmap `-sS -T2` output showing `22/tcp open ssh`, scan completed in 401.49 seconds*
 
-![image_10_page_12.png](image_10_page_12.png)
+![image_10_page_12.png](screenshots/image_10_page_12.png)
 
 ---
 
@@ -263,7 +263,7 @@ Before writing any detection logic, raw events were inspected in Splunk’s fiel
 
 *Screenshot: Splunk interesting fields panel showing SRC (5 values), DPT (100+), PROTO (3 values), DST (5 values) extracted from IPTABLES syslog events*
 
-![image_11_page_13.png](image_11_page_13.png)
+![image_11_page_13.png](screenshots/image_11_page_13.png)
 
 ---
 
@@ -305,7 +305,7 @@ index=main sourcetype=syslog IPTABLES
 
 *Screenshot: Splunk statistics table showing 3 rows — 192.168.102.4 (1811), 192.168.102.1 (178), 127.0.0.53 (80)*
 
-![image_12_page_14.png](image_12_page_14.png)
+![image_12_page_14.png](screenshots/image_12_page_14.png)
 
 ---
 
@@ -347,7 +347,7 @@ index=main sourcetype=syslog IPTABLES
 
 *Screenshot: Splunk statistics table showing a single row — 192.168.102.4 with 1811 unique_ports — after exclusions applied*
 
-![image_13_page_15.png](image_13_page_15.png)
+![image_13_page_15.png](screenshots/image_13_page_15.png)
 
 ---
 
@@ -391,19 +391,19 @@ The `$result.SRC$` and `$result.unique_ports$` tokens are replaced by the actual
 
 *Screenshot: Splunk Save As Alert form showing title “Port Scan Detection”, description, schedule every 5 minutes, trigger when results > 0*
 
-![image_14_page_16.png](image_14_page_16.png)
+![image_14_page_16.png](screenshots/image_14_page_16.png)
 
 ### Figure 16 — Log Event Configuration
 
 *Screenshot: Log Event action block showing event message with `$result.SRC$` token, sourcetype stash, host ubuntu-target, index main*
 
-![image_15_page_17.png](image_15_page_17.png)
+![image_15_page_17.png](screenshots/image_15_page_17.png)
 
 ### Figure 17 — Active Alerts List
 
 *Screenshot: Splunk Alerts page showing two enabled alerts — Port Scan Detection and SSH Brute Force Detected — Status: Enabled*
 
-![image_16_page_18.png](image_16_page_18.png)
+![image_16_page_18.png](screenshots/image_16_page_18.png)
 
 ---
 
