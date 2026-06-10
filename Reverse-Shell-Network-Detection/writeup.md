@@ -50,7 +50,7 @@ Wireshark  (running on Kali, capturing eth0)
 
 *Screenshot: IP address table confirming Windows Host (`192.168.102.1`), Kali Linux (`192.168.102.4`), and Ubuntu Server (`192.168.102.3`) on the host-only network*
 
-![image.png](image.png)
+![image.png](screenshots/image.png)
 
 ---
 
@@ -112,7 +112,7 @@ For this lab, `sudo wireshark` was used as an equivalent alternative.
 
 *Screenshot: `ls -la /usr/bin/nc* `output on Ubuntu showing three binaries —` nc `pointing to alternatives,` nc.openbsd`, and` nc.traditional` — confirming the traditional version is present at full path*
 
-![image.png](image%201.png)
+![image.png](screenshots/image%201.png)
 
 ---
 
@@ -183,7 +183,7 @@ ip a       # → full network interface listing of Ubuntu
 
 *Screenshot: Terminal 1 on Kali showing `listening on [any] 4444 ...` followed by `connect to [192.168.102.4] from (UNKNOWN) [192.168.102.3] 57918` — connection established*
 
-![665fa6c0-53a7-45e3-886d-305f68db8dbf.jpg](665fa6c0-53a7-45e3-886d-305f68db8dbf.jpg)
+![665fa6c0-53a7-45e3-886d-305f68db8dbf.jpg](screenshots/665fa6c0-53a7-45e3-886d-305f68db8dbf.jpg)
 
 ---
 
@@ -191,7 +191,7 @@ ip a       # → full network interface listing of Ubuntu
 
 *Screenshot: Terminal 1 on Kali showing `whoami` returning `s3rvic`, `id` returning full group memberships including `sudo` and `adm`, `hostname` returning `ubuntu-target`, and `ip a` returning Ubuntu's full network configuration — all executing on the victim machine from the attacker's terminal*
 
-![712b4f71-44f5-43cd-90b4-aaa7670dc1e3.jpg](712b4f71-44f5-43cd-90b4-aaa7670dc1e3.jpg)
+![712b4f71-44f5-43cd-90b4-aaa7670dc1e3.jpg](screenshots/712b4f71-44f5-43cd-90b4-aaa7670dc1e3.jpg)
 
 ---
 
@@ -235,7 +235,7 @@ The session showed every command typed (`whoami`, `id`, `ip a`, `ls -la`) and ev
 
 *Screenshot: Wireshark with `tcp.port == 4444` filter applied — 39 packets displayed from 7,157 total — showing SYN, SYN-ACK, ACK, and PSH packets between `192.168.102.3` and `192.168.102.4`*
 
-![e071faa1-0182-4d91-a629-b69c9c964015.jpg](e071faa1-0182-4d91-a629-b69c9c964015.jpg)
+![e071faa1-0182-4d91-a629-b69c9c964015.jpg](screenshots/e071faa1-0182-4d91-a629-b69c9c964015.jpg)
 
 ---
 
@@ -243,7 +243,7 @@ The session showed every command typed (`whoami`, `id`, `ip a`, `ls -la`) and ev
 
 *Screenshot: Wireshark Follow TCP Stream dialog showing the complete reverse shell session — red text showing attacker commands (`whoami`, `id`, `ip a`, `ls -la`) and blue text showing Ubuntu's responses — entire session readable in plain text*
 
-![51d74f27-3aa1-40d9-a416-c6a5a030adfc.jpg](51d74f27-3aa1-40d9-a416-c6a5a030adfc.jpg)
+![51d74f27-3aa1-40d9-a416-c6a5a030adfc.jpg](screenshots/51d74f27-3aa1-40d9-a416-c6a5a030adfc.jpg)
 
 ---
 
@@ -349,13 +349,13 @@ getuid     # → Server username: s3rvic
 
 ---
 
-![2e098820-2acf-4e68-b6dd-1d9f05c058d5.jpg](2e098820-2acf-4e68-b6dd-1d9f05c058d5.jpg)
+![2e098820-2acf-4e68-b6dd-1d9f05c058d5.jpg](screenshots/2e098820-2acf-4e68-b6dd-1d9f05c058d5.jpg)
 
 ### Figure 8 — Metasploit Handler Configured and Listening
 
 *Screenshot: msfconsole showing `use exploit/multi/handler`, PAYLOAD, LHOST, LPORT all set — `run` command executed — `[*] Started reverse TCP handler on 192.168.102.4:4445`*
 
-![d0674d00-4948-4403-8d80-5c30d9a943d4.jpg](d0674d00-4948-4403-8d80-5c30d9a943d4.jpg)
+![d0674d00-4948-4403-8d80-5c30d9a943d4.jpg](screenshots/d0674d00-4948-4403-8d80-5c30d9a943d4.jpg)
 
 ---
 
@@ -363,13 +363,13 @@ getuid     # → Server username: s3rvic
 
 *Screenshot: msfconsole showing `[*] Sending stage (1062760 bytes) to 192.168.102.3 `followed by` [*] Meterpreter session 1 opened `—` meterpreter > `prompt active —` sysinfo `output showing` ubuntu-target`, Ubuntu OS, x64 architecture*
 
-![12b55687-a2d9-419d-b7ec-559954bf697a.jpg](12b55687-a2d9-419d-b7ec-559954bf697a.jpg)
+![12b55687-a2d9-419d-b7ec-559954bf697a.jpg](screenshots/12b55687-a2d9-419d-b7ec-559954bf697a.jpg)
 
-![image.png](image%202.png)
+![image.png](screenshots/image%202.png)
 
-![image.png](image%203.png)
+![image.png](screenshots/image%203.png)
 
-![image.png](image%204.png)
+![image.png](screenshots/image%204.png)
 
 ---
 
@@ -409,7 +409,7 @@ Encryption hides **content** — it does not hide **behaviour**. A defender with
 
 *Screenshot: Wireshark Follow TCP Stream dialog for port 4445 — showing encrypted binary data, unreadable ASCII characters, no plain text commands visible — in stark contrast to the Netcat stream in Figure 6*
 
-![20869c43-2c64-42fb-bc3a-23d1d4cff6da.jpg](20869c43-2c64-42fb-bc3a-23d1d4cff6da.jpg)
+![20869c43-2c64-42fb-bc3a-23d1d4cff6da.jpg](screenshots/20869c43-2c64-42fb-bc3a-23d1d4cff6da.jpg)
 
 ---
 
