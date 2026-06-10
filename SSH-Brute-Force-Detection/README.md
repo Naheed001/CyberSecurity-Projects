@@ -2,9 +2,9 @@
 
 ## Overview
 
-This project covers detection and analysis of SSH brute force attacks. It then builds a Splunk dashboard with threshold-based alerts to detect unauthorised logins (brute force attacks). It acts as a good entry-level project for those interested in SOC related roles (blue team focused)
+This project covers detection and analysis of SSH brute force attacks. It then builds a Splunk dashboard with threshold-based alerts to detect unauthorised logins (brute force attacks). It acts as a good entry-level project for those interested in SOC related roles (blue team focused).
 
-The fundamentals act as a learning methodology that teaches you the core knowledge required to complete the project in your own time. The write-up is my personal documentation of the lab I carried out
+The fundamentals act as a learning methodology that teaches you the core knowledge required to complete the project in your own time. The write-up is my personal documentation of the lab I carried out.
 
 > Note: The fundamentals section was AI-assisted and used as a structured learning resource prior to completing the lab
 
