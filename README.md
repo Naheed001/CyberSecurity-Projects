@@ -1,6 +1,6 @@
 # CyberSecurity-Lab Projects
 
-> Contains a collection of beginner-friendly cybersecurity projects completed as part of my degree over summer.
+> Contains a collection of cybersecurity projects completed as part of my degree over summer.
 >
 > ---
 >
