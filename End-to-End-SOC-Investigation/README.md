@@ -5,7 +5,7 @@
 This project covers a full attack on a network system and covers the framework a SOC analyst would use to investigate and respond to the attack.
 
 The attack simulates a full attack chain - port scanning, brute forcing an open port and deploying a reverse shell to compromise the target.
-Wireshark and Splunk were then used to deect, investigate and visualise the attack, following both NIST and PICERL frameworks.
+Wireshark and Splunk were then used to detect, investigate and visualise the attack, following both NIST and PICERL frameworks.
 
 This project is suited to those interested in blue team roles whislt also providing red team exposure through hands-on technique implementation.
 
