@@ -50,7 +50,7 @@ Wireshark  (running on Kali, capturing eth0)
 
 *Screenshot: IP address table confirming Windows Host (`192.168.102.1`), Kali Linux (`192.168.102.4`), and Ubuntu Server (`192.168.102.3`) on the host-only network — all three VMs visible and reachable*
 
-![image.png](image.png)
+![image.png](screenshots/image.png)
 
 | Machine | Role | IP Address |
 | --- | --- | --- |
@@ -90,7 +90,7 @@ A result confirmed real-time log forwarding was active. **Splunk must be receivi
 
 *Screenshot: Wireshark running on Kali with `ip.addr == 192.168.102.3` display filter applied — capture active on eth0 — packet list updating in real time before any attack traffic is generated*
 
-![image.png](image%201.png)
+![image.png](screenshots/image%201.png)
 
 ---
 
@@ -142,7 +142,7 @@ The aggressive scan produced an immediately distinctive pattern in Wireshark —
 
 *Screenshot: Nmap terminal output showing `22/tcp open ssh OpenSSH 10.2p1 Ubuntu 2ubuntu3` — OS detected as Linux — MAC address confirming Oracle VirtualBox NIC — `Not shown: 999 closed tcp ports (reset)`*
 
-![image.png](image%202.png)
+![image.png](screenshots/image%202.png)
 
 ---
 
@@ -150,7 +150,7 @@ The aggressive scan produced an immediately distinctive pattern in Wireshark —
 
 *Screenshot: Wireshark showing rapid SYN packets from `192.168.102.4` to `192.168.102.3` across sequential ports — RST responses from closed ports — single SYN-ACK visible on port 22 — ICMP probe packets visible at top of capture*
 
-![image.png](image%203.png)
+![image.png](screenshots/image%203.png)
 
 ---
 
@@ -198,7 +198,7 @@ Result:  ubuntu-target  →  442 events
 
 *Screenshot: Hydra terminal output showing verbose attempt list ending with `[22][ssh] host: 192.168.102.3 login: s3rvic password: password1` — `1 of 1 target successfully completed, 1 valid password found`*
 
-![image.png](image%204.png)
+![image.png](screenshots/image%204.png)
 
 ---
 
@@ -206,7 +206,7 @@ Result:  ubuntu-target  →  442 events
 
 *Screenshot: Splunk search `index=main sourcetype="linux_secure" "Failed password" host="ubuntu-target" | stats count by host` — statistics view showing `ubuntu-target` with a count of 442*
 
-![image.png](image%205.png)
+![image.png](screenshots/image%205.png)
 
 ---
 
@@ -255,7 +255,7 @@ The `Accepted password` event is the **critical pivot point** in this incident t
 
 *Screenshot: Terminal on Kali showing `ssh s3rvic@192.168.102.3` — Ubuntu welcome banner confirming `Welcome to Ubuntu 26.04 LTS` — shell prompt changed to `s3rvic@ubuntu-target:~$`*
 
-![image.png](image%206.png)
+![image.png](screenshots/image%206.png)
 
 ---
 
@@ -263,7 +263,7 @@ The `Accepted password` event is the **critical pivot point** in this incident t
 
 *Screenshot: Splunk search returning 6 `Accepted password` events for `s3rvic` from `192.168.102.4` — timestamps visible — source shown as `/var/log/auth.log` — sourcetype `linux_secure`*
 
-![image.png](image%207.png)
+![image.png](screenshots/image%207.png)
 
 ---
 
@@ -335,7 +335,7 @@ ip a       # → 192.168.102.3 confirmed on enp0s3
 
 *Screenshot: Metasploit terminal on Kali showing `[*] Started reverse TCP handler on 192.168.102.4:4444 `followed by` [*] Command shell session 1 opened (192.168.102.4:4444 → 192.168.102.3:52804)` — shell prompt active*
 
-![image.png](image%208.png)
+![image.png](screenshots/image%208.png)
 
 ---
 
@@ -343,7 +343,7 @@ ip a       # → 192.168.102.3 confirmed on enp0s3
 
 *Screenshot: Metasploit shell showing `whoami` returning `s3rvic` and `ip a` returning full network interface output confirming `192.168.102.3` on `enp0s3` — all commands executing on Ubuntu from Kali's terminal*
 
-![image.png](image%209.png)
+![image.png](screenshots/image%209.png)
 
 ---
 
@@ -396,7 +396,7 @@ The stream showed every command typed (`whoami`, `ip a`) and every response — 
 
 *Screenshot: Wireshark with `tcp.port == 4444 && tcp.flags.syn == 1` filter applied — 4 packets shown — SYN and SYN-ACK packets between `192.168.102.4` and `192.168.102.3` confirming reverse shell connection established*
 
-![image.png](image%2010.png)
+![image.png](screenshots/image%2010.png)
 
 ---
 
@@ -404,7 +404,7 @@ The stream showed every command typed (`whoami`, `ip a`) and every response — 
 
 *Screenshot: Wireshark Follow TCP Stream dialog for port 4444 — red text showing attacker commands `whoami` and `ip a` — blue text showing Ubuntu's responses including `s3rvic` and full `ip a` output — entire session readable as plain text*
 
-![image.png](image%2011.png)
+![image.png](screenshots/image%2011.png)
 
 ---
 
@@ -464,7 +464,7 @@ Returns **106 events** — Ubuntu's IPTABLES firewall logging every packet of th
 
 *Screenshot: Splunk search `index=main host="ubuntu-target" "4444"` returning 106 events — event details showing `IPTABLES: SRC=192.168.102.4 DST=192.168.102.3 SPT=4444` — sourcetype `syslog` from `/var/log/syslog`*
 
-![image.png](image%2012.png)
+![image.png](screenshots/image%2012.png)
 
 ---
 
@@ -472,13 +472,13 @@ Returns **106 events** — Ubuntu's IPTABLES firewall logging every packet of th
 
 *Screenshot: Full Splunk dashboard showing all five panels — SSH Brute Force Attempts Over Time (line chart spike visible), Successful SSH Logins (table), Reverse Shell C2 Activity Port 4444 (line chart), Full Incident Timeline (chronological table), Evidence Integrity Record (SHA256 hash table)*
 
-![image.png](image%2013.png)
+![image.png](screenshots/image%2013.png)
 
-![image.png](image%2014.png)
+![image.png](screenshots/image%2014.png)
 
-![image.png](image%2015.png)
+![image.png](screenshots/image%2015.png)
 
-![image.png](image%2016.png)
+![image.png](screenshots/image%2016.png)
 
 ---
 
