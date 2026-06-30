@@ -1,4 +1,4 @@
-# Custom Log-Based IDS Script — Fundamentals
+# Custom Log-Based Detection Script — Fundamentals
 
 # 📌 Overview
 
